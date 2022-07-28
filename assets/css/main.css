@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;1,400&display=swap');
+
+@font-face {
+font-family: 'icomoon';
+src:  url('../fonts/icomoon.eot?utdf3q');
+src:  url('../fonts/icomoon.eot?utdf3q#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?utdf3q') format('truetype'),
+    url('../fonts/icomoon.woff?utdf3q') format('woff'),
+    url('../fonts/icomoon.svg?utdf3q#icomoon') format('svg');
+font-weight: normal;
+font-style: normal;
+font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+/* use !important to prevent issues with browser extensions that change fonts */
+font-family: 'icomoon' !important;
+speak: never;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+
+/* Better Font Rendering =========== */
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xmark:before {
+content: "\e900";
+}
+.icon-quill:before {
+content: "\e907";
+}
+.icon-arrow-up2:before {
+content: "\ea3a";
+}
+.icon-arrow-down2:before {
+content: "\ea3e";
+}
+  
+
+:root {
+    --body-font: 16px;
+
+    --body-bg: #ffffff;
+    --body-text: #000000;
+
+    --items-hover: #f10000;
+    --items-active: #077907;
+    --items-border: #a3a3a3;
+
+    --border-radi: 5px;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+.to-do {
+    max-width: 500px;
+    width: 100%;
+    margin: 4rem auto;
+}
+
+.to-do h1 {
+    text-align: center;
+}
+
+.to-do__body {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#inputField {
+    max-width: 300px;
+    padding: 0.8rem;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid var(--items-border);
+    outline: none;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
+
+#inputField:hover {
+    border: 1px solid var(--items-active);
+}
+
+#inputField:focus{
+    outline: none;
+    border: 1px solid var(--items-active);
+}
+
+#inputField::placeholder {
+    font-style: italic;
+    font-weight: 100;
+}
+
+.errorMsg {
+    color: var(--items-hover)
+}
+
+#addToDo {
+    border: 1px solid var(--items-active);
+    vertical-align: middle;
+    font-size: 1.3rem;
+    background-color: var(--body-bg);
+    padding: 0.8rem 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#addToDo:hover {
+    background-color: var(--items-active);
+    color: var(--body-bg);
+}
+
+.task-container {
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    border-radius: var(--border-radi);
+    border: 1px solid var(--items-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-container:hover {
+    border: 1px solid var(--items-hover);
+}
+
+.paragraph-styling {
+    border-radius: var(--border-radi);
+    text-align: left;
+    margin: 0;
+    cursor: pointer;
+}
+
+.task-details {
+    display: none;
+}
+
+.to-dos {
+    margin-top: 3rem;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.editItem::after {
+    content: "\e907";
+    font-family: 'icomoon';
+    cursor: pointer;
+}
+
+.moveUp::after {
+    content: "\ea3a";
+    font-family: 'icomoon';
+    cursor: pointer;
+}
+
+.moveDown::after {
+    content: "\ea3e";
+    font-family: 'icomoon';
+    cursor: pointer;
+}
+
+.deleteItem::after {
+    content: "\e900";
+    font-family: 'icomoon';
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.editItem:hover, .moveUp:hover, .moveDown:hover {
+    color: var(--items-active);
+}
+
+.deleteItem:hover {
+    color: var( --items-hover)
+}
+
+.overlay {
+    background-color: #221d1d;
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    display: block;
+    transition: 0.5s all ease-in-out;
+}
+
+.to-do__edit {
+    max-width: 500px;
+    width: 100%;
+    margin: 10% auto;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.3rem;
+    background-color: #a3a3a3;
+    padding: 5rem;
+}
+
+#editField {
+    max-width: 300px;
+    padding: 0.8rem;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid var(--items-active);
+    outline: none;
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
+
+#editField:hover {
+    border: 1px solid var(--items-active);
+}
+
+#editField:focus{
+    outline: none;
+    border: 1px solid var(--items-active);
+}
+
+#editField::placeholder {
+    font-style: italic;
+    font-weight: 100;
+}
+
+#editTask {
+    border: 1px solid var(--items-active);
+    vertical-align: middle;
+    font-size: 1.3rem;
+    background-color: var(--body-bg);
+    padding: 0.6rem 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+#editTask:hover {
+    background-color: var(--items-active);
+    color: var(--body-bg);
+}
